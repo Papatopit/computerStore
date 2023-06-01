@@ -9,8 +9,8 @@ import lombok.NoArgsConstructor;
 
 
 @NoArgsConstructor
-@AllArgsConstructor
 @Data
+@Entity
 @Table(name = "laptop")
 public class Laptops extends ProductProperties{
     @Column(name = "screen_inch")

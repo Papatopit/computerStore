@@ -3,11 +3,12 @@ package com.kolokolnin.computersStore.repository;
 import com.kolokolnin.computersStore.entity.ProductProperties;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.NoRepositoryBean;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Repository
+@NoRepositoryBean
 public interface ProductPropertiesRepo<E extends ProductProperties> extends CrudRepository<E, Long> {
     List<E> findAll();
 

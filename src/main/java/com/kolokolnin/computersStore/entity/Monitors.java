@@ -7,7 +7,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@AllArgsConstructor
+@Entity
 @NoArgsConstructor
 @Data
 @Table(name = "monitor")

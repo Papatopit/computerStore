@@ -2,7 +2,7 @@ package com.kolokolnin.computersStore.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
-@Entity
+@MappedSuperclass
 @AllArgsConstructor
 @NoArgsConstructor
 @Data

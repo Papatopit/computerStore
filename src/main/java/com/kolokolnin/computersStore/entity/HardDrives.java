@@ -9,8 +9,8 @@ import lombok.NoArgsConstructor;
 
 
 @NoArgsConstructor
-@AllArgsConstructor
 @Data
+@Entity
 @Table(name = "hard_drive")
 public class HardDrives extends ProductProperties {
     @Column(name = "capacity")
