@@ -17,7 +17,7 @@ public class HardDrivesController extends AbstractProductRestController<HardDriv
 
 
     private final HardDrivesService hardDrivesService;
-    @Autowired
+
     public HardDrivesController(HardDrivesService hardDrivesService) {
         super(hardDrivesService);
         this.hardDrivesService = hardDrivesService;

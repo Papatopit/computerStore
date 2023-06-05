@@ -8,10 +8,15 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-@AllArgsConstructor
 public class MonitorService extends AbstractProductService<Monitors, MonitorRepo> {
 
     private final MonitorRepo monitorRepo;
+
+    public MonitorService(MonitorRepo monitorRepo) {
+        super(monitorRepo);
+        this.monitorRepo = monitorRepo;
+    }
+
 
     public List<Monitors> getMonitorByDiagonal(Long diagonal) {
         return monitorRepo.findByDiagonal(diagonal);

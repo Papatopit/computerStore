@@ -14,7 +14,7 @@ import java.util.UUID;
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private UUID id;
+    private Long id;
     @NotNull
     @Column(name = "serial_number")
     private Long serialNumber;

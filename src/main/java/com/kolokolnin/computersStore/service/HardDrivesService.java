@@ -2,18 +2,20 @@ package com.kolokolnin.computersStore.service;
 
 import com.kolokolnin.computersStore.entity.HardDrives;
 import com.kolokolnin.computersStore.repository.HardDrivesRepo;
-import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-@AllArgsConstructor
 public class HardDrivesService extends AbstractProductService<HardDrives, HardDrivesRepo> {
 
 
    private final HardDrivesRepo hardDrivesRepo;
+
+    public HardDrivesService(HardDrivesRepo hardDrivesRepo) {
+        super(hardDrivesRepo);
+        this.hardDrivesRepo = hardDrivesRepo;
+    }
 
     public List<HardDrives> readByCapacity(Long capacity) {
         return hardDrivesRepo.findByCapacity(capacity);

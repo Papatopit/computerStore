@@ -17,7 +17,6 @@ public class MonitorController extends AbstractProductRestController<Monitors, M
 
 
     private final MonitorService monitorService;
-    @Autowired
     public MonitorController(MonitorService monitorService) {
         super(monitorService);
         this.monitorService = monitorService;

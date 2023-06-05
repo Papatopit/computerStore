@@ -13,7 +13,7 @@ public interface ProductPropertiesController<E extends Product> {
     @ResponseBody
     List<E> getAllProducts();
 
-    @GetMapping("/all")
+    @PostMapping("/all")
     @ResponseBody
     List<E> productByPropertyRequest(@RequestBody E requestedProduct);
 
@@ -21,11 +21,11 @@ public interface ProductPropertiesController<E extends Product> {
     @ResponseBody
     boolean addProductRequest(@RequestBody E addProductRequest);
 
-    @GetMapping("/api/v1/product/{{id}")
+    @GetMapping("/find")
     @ResponseBody
     E getProductBySerialNumberOrId(@RequestBody E requestedProduct);
 
-    @PostMapping("/api/v1/product/update/{{id}}")
+    @PostMapping("/update")
     @ResponseBody
     boolean setProduct(@RequestBody E requestedProduct);
 }

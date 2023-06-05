@@ -10,7 +10,7 @@ VALUES (
    'DNS',
    22,
    7,
-   7
+   1
 );
 
 INSERT INTO desktop_computer (
@@ -25,5 +25,5 @@ VALUES (
    'CITYLINK',
    88,
    99,
-   34
+   2
 );

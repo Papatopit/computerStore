@@ -16,7 +16,7 @@ import java.util.List;
 @Slf4j
 public class LaptopController extends AbstractProductRestController<Laptops, LaptopService> {
    private final LaptopService laptopService;
-    @Autowired
+
     public LaptopController(LaptopService laptopService) {
         super(laptopService);
         this.laptopService = laptopService;

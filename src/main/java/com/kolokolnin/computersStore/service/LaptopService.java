@@ -3,16 +3,20 @@ package com.kolokolnin.computersStore.service;
 import com.kolokolnin.computersStore.entity.Laptops;
 import com.kolokolnin.computersStore.repository.LaptopRepo;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-@AllArgsConstructor
 public class LaptopService extends AbstractProductService<Laptops, LaptopRepo> {
 
     private final LaptopRepo laptopRepo;
+
+    public LaptopService(LaptopRepo laptopRepo) {
+        super(laptopRepo);
+        this.laptopRepo = laptopRepo;
+
+    }
 
     public List<Laptops> readByScreenDiagonal(Laptops.ScreenInch screenInch) {
         return laptopRepo.findByScreenInch(screenInch);

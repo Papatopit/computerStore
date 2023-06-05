@@ -32,12 +32,12 @@
 User Name: admin
 
 остальные поля оставляем пустыми! нажимаем Connect
-Запускаем код из 
+ 
 1)db/migration/v1_create_tables.sql
-или делаем нативный запрос из H2
+копируем скрипт делаем нативный запрос в H2
 
 2)db/migration/v2_isert_pc_tables.sql
-или делаем нативный запрос из H2
+копируем скрипт делаем нативный запрос в H2
 
 Json-формат всех свойств товаров описан следующим образом:
 
@@ -47,10 +47,16 @@ Json-формат всех свойств товаров описан следу
 "price":          <int8>
 "unitsInStock":   <int8>
 
-"formFactor":     <int4>
+"formFactor":     <varchar(255)>
 "screenDiagonal": <int4>
 "diagonal"        <int8>
 "capacity":       <int8>
+
+На задаваемые свойства накладываются следующие ограничения:
+serialNumber не может повторяться в пределах продукции одного типа
+formFactor описан перечислением и ограничен вариациями чисел от 0 до 2 (десктопы, неттопы, моноблоки)
+screenDiagonal также описана перечислением и ограничена вариациями чисел от 0 до 3 (13, 14, 15, 17 дюймовые соответственно)
+id задается автоматически и, если не опущен, будет проигнорирован в запросах отличных от поиска по id.
 
 # Post-запросы на добавление товаров обрабатываются по адресам:
 
@@ -59,13 +65,13 @@ http://localhost:8080/api/v1/laptop/add
 http://localhost:8080/api/v1/monitor/add
 http://localhost:8080/api/v1/hdd/add
 
-# Пример тела такого рода запроса на адрес "http://localhost:8080/v1/api/pc/add":
+# Пример тела такого рода запроса на адрес "http://localhost:8080/api/v1/pc/add":
 {
 "serial_number": 777,
 "manufacturer": "Company",
 "price": 5000,
 "units_in_stock": 2020,
-"form_factor": 1
+"form_factor": "LAPTOP"
 }
 # Get-запросы на получение списка товаров по типу, а также Post-запросы на поиск товаров по одному из его свойств обрабатываются по адресам:
 
@@ -98,7 +104,7 @@ http://localhost:8080/api/v1/hdd/update
 Пример тела Post-запроса на адрес "http://localhost:8080/api/v1/hdd/update":
 {
 "serial_number": 777,
-"manufacturer": "Other Company name",
+"manufacturer": "Company name",
 "units_in_stock": 666
 }
 Опущенные свойства товара будут оставлены без изменений

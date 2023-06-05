@@ -8,12 +8,13 @@ import lombok.NoArgsConstructor;
 import java.util.List;
 import java.util.UUID;
 
-@AllArgsConstructor
-@NoArgsConstructor
 public abstract class AbstractProductService<E extends Product,
         R extends ProductPropertiesRepo<E>> implements ProductPropertiesService<E> {
 
-    private R DAO;
+    private final R DAO;
+    public AbstractProductService(R DAO) {
+        this.DAO = DAO;
+    }
 
     public List<E> allProducts() {
         return DAO.findAll();
@@ -29,7 +30,7 @@ public abstract class AbstractProductService<E extends Product,
         return true;
     }
 
-    public E getById(UUID id) {
+    public E getById(Long id) {
         return DAO.findProductById(id);
     }
 

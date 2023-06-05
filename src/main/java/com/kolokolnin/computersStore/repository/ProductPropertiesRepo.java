@@ -13,7 +13,7 @@ public interface ProductPropertiesRepo<E extends Product> extends CrudRepository
     @NonNull
     List<E> findAll();
 
-    E findProductById(UUID id);
+    E findProductById(Long id);
 
     E findBySerialNumber(Long serialNumber);
     List<E> findByManufacturer(String manufacturer);

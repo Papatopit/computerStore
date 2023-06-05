@@ -10,7 +10,7 @@ public interface ProductPropertiesService<E extends Product> {
 
     boolean createProduct(E pc);
 
-    E getById(UUID id);
+    E getById(Long id);
 
     E getBySerialNumber(Long serialNumber);
 

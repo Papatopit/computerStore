@@ -17,7 +17,7 @@ import java.util.List;
 public class DesktopComputerController extends AbstractProductRestController<DesktopComputers, DesktopComputerService> {
 
     private final DesktopComputerService desktopComputerService;
-    @Autowired
+
     public DesktopComputerController(DesktopComputerService desktopComputerService) {
         super(desktopComputerService);
         this.desktopComputerService = desktopComputerService;
