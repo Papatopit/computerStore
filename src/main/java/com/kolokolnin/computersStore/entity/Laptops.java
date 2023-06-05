@@ -3,16 +3,17 @@ package com.kolokolnin.computersStore.entity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 
 @NoArgsConstructor
-@Data
 @Entity
 @Table(name = "laptop")
-public class Laptops extends ProductProperties{
+@Getter
+@Setter
+public class Laptops extends Product {
     @Column(name = "screen_inch")
     private ScreenInch screenInch;
 

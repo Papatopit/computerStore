@@ -12,8 +12,8 @@ import java.util.List;
 @AllArgsConstructor
 public class HardDrivesService extends AbstractProductService<HardDrives, HardDrivesRepo> {
 
-   @Autowired
-   private HardDrivesRepo hardDrivesRepo;
+
+   private final HardDrivesRepo hardDrivesRepo;
 
     public List<HardDrives> readByCapacity(Long capacity) {
         return hardDrivesRepo.findByCapacity(capacity);

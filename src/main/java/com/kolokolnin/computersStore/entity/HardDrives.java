@@ -3,16 +3,17 @@ package com.kolokolnin.computersStore.entity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 
 @NoArgsConstructor
-@Data
 @Entity
 @Table(name = "hard_drive")
-public class HardDrives extends ProductProperties {
+@Getter
+@Setter
+public class HardDrives extends Product {
     @Column(name = "capacity")
     private Long capacity;
 }

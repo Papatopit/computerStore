@@ -1,15 +1,21 @@
 package com.kolokolnin.computersStore.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
+
+import java.util.UUID;
+
 @MappedSuperclass
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
-public class ProductProperties {
+@Getter
+@Setter
+public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private UUID id;
+    @NotNull
     @Column(name = "serial_number")
     private Long serialNumber;
     @Column(name = "manufacturer")

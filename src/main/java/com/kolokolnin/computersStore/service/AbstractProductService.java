@@ -1,15 +1,16 @@
 package com.kolokolnin.computersStore.service;
 
-import com.kolokolnin.computersStore.entity.ProductProperties;
+import com.kolokolnin.computersStore.entity.Product;
 import com.kolokolnin.computersStore.repository.ProductPropertiesRepo;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
+import java.util.UUID;
 
 @AllArgsConstructor
 @NoArgsConstructor
-public abstract class AbstractProductService<E extends ProductProperties,
+public abstract class AbstractProductService<E extends Product,
         R extends ProductPropertiesRepo<E>> implements ProductPropertiesService<E> {
 
     private R DAO;
@@ -28,23 +29,23 @@ public abstract class AbstractProductService<E extends ProductProperties,
         return true;
     }
 
-    public E readById(Long id) {
+    public E getById(UUID id) {
         return DAO.findProductById(id);
     }
 
-    public E readBySerialNumber(Long serialNumber) {
+    public E getBySerialNumber(Long serialNumber) {
         return DAO.findBySerialNumber(serialNumber);
     }
 
-    public List<E> readByManufacturer(String manufacture) {
+    public List<E> getByManufacturer(String manufacture) {
         return DAO.findByManufacturer(manufacture);
     }
 
-    public List<E> readByPrice(Long price) {
+    public List<E> getByPrice(Long price) {
         return DAO.findByPrice(price);
     }
 
-    public List<E> readByUnitsInStock(Long unitsInStock) {
+    public List<E> getByUnitsInStock(Long unitsInStock) {
         return DAO.findByUnitsInStock(unitsInStock);
     }
 

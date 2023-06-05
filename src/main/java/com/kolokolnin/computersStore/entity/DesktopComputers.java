@@ -6,11 +6,12 @@ import jakarta.persistence.Table;
 import lombok.*;
 
 
-@Data
 @Table(name = "desktop_computer")
 @NoArgsConstructor
 @Entity
-public class DesktopComputers extends ProductProperties {
+@Getter
+@Setter
+public class DesktopComputers extends Product {
     @Column(name = "form_factor")
     private FormFactor formFactor;
 

@@ -1,5 +1,6 @@
 spring:
   name: ComputerStore
+
   flyway: baseline-on-migrate=true
 
   datasource:

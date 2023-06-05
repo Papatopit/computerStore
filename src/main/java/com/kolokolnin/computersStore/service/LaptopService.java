@@ -11,8 +11,8 @@ import java.util.List;
 @Service
 @AllArgsConstructor
 public class LaptopService extends AbstractProductService<Laptops, LaptopRepo> {
-    @Autowired
-    private LaptopRepo laptopRepo;
+
+    private final LaptopRepo laptopRepo;
 
     public List<Laptops> readByScreenDiagonal(Laptops.ScreenInch screenInch) {
         return laptopRepo.findByScreenInch(screenInch);

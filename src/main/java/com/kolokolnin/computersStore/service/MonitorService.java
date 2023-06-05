@@ -3,7 +3,6 @@ package com.kolokolnin.computersStore.service;
 import com.kolokolnin.computersStore.entity.Monitors;
 import com.kolokolnin.computersStore.repository.MonitorRepo;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -12,10 +11,9 @@ import java.util.List;
 @AllArgsConstructor
 public class MonitorService extends AbstractProductService<Monitors, MonitorRepo> {
 
-    @Autowired
-    private MonitorRepo monitorRepo;
+    private final MonitorRepo monitorRepo;
 
-    public List<Monitors> readMonitorByDiagonal(Long diagonal) {
+    public List<Monitors> getMonitorByDiagonal(Long diagonal) {
         return monitorRepo.findByDiagonal(diagonal);
     }
 

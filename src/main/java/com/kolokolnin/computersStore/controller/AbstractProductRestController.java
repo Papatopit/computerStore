@@ -1,17 +1,19 @@
 package com.kolokolnin.computersStore.controller;
 
-import com.kolokolnin.computersStore.entity.ProductProperties;
+import com.kolokolnin.computersStore.entity.Product;
 import com.kolokolnin.computersStore.service.ProductPropertiesService;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
+import com.kolokolnin.computersStore.utils.ProductValidator;
+import lombok.extern.log4j.Log4j;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
-
-public abstract class AbstractProductRestController <E extends ProductProperties,
+@Slf4j
+public abstract class AbstractProductRestController <E extends Product,
         S extends ProductPropertiesService<E>> implements ProductPropertiesController<E> {
 
     private final S service;
+
 
     protected AbstractProductRestController(S service) {
         this.service = service;
@@ -19,13 +21,17 @@ public abstract class AbstractProductRestController <E extends ProductProperties
 
     @Override
     public List<E> getAllProducts() {
+        log.info("get all products {}",service.allProducts());
         return service.allProducts();
     }
 
+
     @Override
-    public boolean addProduct(@RequestBody E requestedProduct) {
-        if (requestedProduct.getSerialNumber() != null) {
-            return service.createProduct(requestedProduct);
+    public boolean addProductRequest(@RequestBody E addProductRequest) {
+
+        if (addProductRequest.getSerialNumber() != null) {
+            log.info("add Product {}", service.createProduct(addProductRequest));
+            return service.createProduct(addProductRequest);
         }
 
         return false;
@@ -34,11 +40,13 @@ public abstract class AbstractProductRestController <E extends ProductProperties
     @Override
     public E getProductBySerialNumberOrId(@RequestBody E requestedProduct) {
         if (requestedProduct.getId() != null) {
-            return service.readById(requestedProduct.getId());
+            log.info("requested ID Product {}", service.getById(requestedProduct.getId()));
+            return service.getById(requestedProduct.getId());
         }
 
         if (requestedProduct.getSerialNumber() != null) {
-            return service.readBySerialNumber(requestedProduct.getSerialNumber());
+            log.info("requested SerialNumber Product {}", service.getBySerialNumber(requestedProduct.getSerialNumber()));
+            return service.getBySerialNumber(requestedProduct.getSerialNumber());
         }
 
         return null;
@@ -46,13 +54,13 @@ public abstract class AbstractProductRestController <E extends ProductProperties
 
     public List<E> getProductsByDefaultProperty(E requestedProduct) {
         if (requestedProduct.getManufacturer() != null) {
-            return service.readByManufacturer(requestedProduct.getManufacturer());
+            return service.getByManufacturer(requestedProduct.getManufacturer());
         }
         if (requestedProduct.getPrice() != null) {
-            return service.readByPrice(requestedProduct.getPrice());
+            return service.getByPrice(requestedProduct.getPrice());
         }
         if (requestedProduct.getUnitsInStock() != null) {
-            return service.readByUnitsInStock(requestedProduct.getUnitsInStock());
+            return service.getByUnitsInStock(requestedProduct.getUnitsInStock());
         }
 
         return null;
