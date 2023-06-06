@@ -9,6 +9,7 @@ import java.util.List;
 
 @Service
 @Slf4j
+
 public class DesktopComputerService extends AbstractProductService<DesktopComputers, DesktopComputersRepo> {
 
    private final DesktopComputersRepo desktopComputersRepo;

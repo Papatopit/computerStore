@@ -14,7 +14,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Laptops extends Product {
-    @Column(name = "screen_inch")
+
     private ScreenInch screenInch;
 
     public enum ScreenInch {

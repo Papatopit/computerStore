@@ -12,7 +12,7 @@ import lombok.*;
 @Getter
 @Setter
 public class DesktopComputers extends Product {
-    @Column(name = "form_factor")
+
     private FormFactor formFactor;
 
     public enum FormFactor {

@@ -13,6 +13,6 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Monitors extends Product {
-    @Column(name = "diagonal")
+
     private Long diagonal;
 }

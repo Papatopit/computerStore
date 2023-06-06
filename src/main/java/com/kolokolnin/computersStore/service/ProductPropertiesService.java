@@ -3,7 +3,6 @@ package com.kolokolnin.computersStore.service;
 import com.kolokolnin.computersStore.entity.Product;
 
 import java.util.List;
-import java.util.UUID;
 
 public interface ProductPropertiesService<E extends Product> {
     List<E> allProducts();

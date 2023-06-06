@@ -29,19 +29,19 @@
 
 Переходим в браузере http://localhost:8080/h2 
  
-User Name: admin
+`User Name: admin`
 
 остальные поля оставляем пустыми! нажимаем Connect
  
 1)db/migration/v1_create_tables.sql
 копируем скрипт делаем нативный запрос в H2
 
-2)db/migration/v2_isert_pc_tables.sql
+2)db/migration/v2_insert_pc_tables.sql
 копируем скрипт делаем нативный запрос в H2
 
 Json-формат всех свойств товаров описан следующим образом:
 
-"id":             <bigserial>
+`"id":             <bigserial>
 "serialNumber":   <int8>
 "manufacturer":   "<varchar(255)>"
 "price":          <int8>
@@ -50,7 +50,7 @@ Json-формат всех свойств товаров описан следу
 "formFactor":     <varchar(255)>
 "screenDiagonal": <int4>
 "diagonal"        <int8>
-"capacity":       <int8>
+"capacity":       <int8>`
 
 На задаваемые свойства накладываются следующие ограничения:
 serialNumber не может повторяться в пределах продукции одного типа
@@ -65,14 +65,16 @@ http://localhost:8080/api/v1/laptop/add
 http://localhost:8080/api/v1/monitor/add
 http://localhost:8080/api/v1/hdd/add
 
-# Пример тела такого рода запроса на адрес "http://localhost:8080/api/v1/pc/add":
-{
-"serial_number": 777,
+# Пример тела такого рода запроса на адрес 
+http://localhost:8080/api/v1/pc/add:
+`{
+"serialNumber": 777,
 "manufacturer": "Company",
 "price": 5000,
-"units_in_stock": 2020,
-"form_factor": "LAPTOP"
-}
+"unitsInStock": 2020,
+"formFactor": 1
+}`
+
 # Get-запросы на получение списка товаров по типу, а также Post-запросы на поиск товаров по одному из его свойств обрабатываются по адресам:
 
 http://localhost:8080/api/v1/pc/all
@@ -80,31 +82,37 @@ http://localhost:8080/api/v1/laptop/all
 http://localhost:8080/api/v1/monitor/all
 http://localhost:8080/api/v1/hdd/all
 
-# Пример тела Post-запроса на адрес "http://localhost:8080/api/v1/laptop/all":
-
-{
+# Пример тела Post-запроса на адрес "
+http://localhost:8080/api/v1/laptop/all":
+`{
 "manufacturer": "Company"
 }
-
+`
 # Post-запросы на поиск товаров по серийному номеру или id в базе обрабатываются по адресам:
 http://localhost:8080/api/v1/pc/find
 http://localhost:8080/api/v1/laptop/find
 http://localhost:8080/api/v1/monitor/find
 http://localhost:8080/api/v1/hdd/find
-Пример тела Post-запроса на адрес "http://localhost:8080/api/v1/monitor/find":
 
-{
-"serial_number": 123
-}
+# Пример тела Post-запроса на адрес 
+
+http://localhost:8080/api/v1/monitor/find:
+`{
+"serialNumber": 123
+}`
+
 # Post-запросы на изменение товара по серийному номеру обрабатываются по адресам:
 http://localhost:8080/api/v1/pc/update
 http://localhost:8080/api/v1/laptop/update
 http://localhost:8080/api/v1/monitor/update
 http://localhost:8080/api/v1/hdd/update
-Пример тела Post-запроса на адрес "http://localhost:8080/api/v1/hdd/update":
-{
-"serial_number": 777,
+
+# Пример тела Post-запроса на адрес 
+http://localhost:8080/api/v1/hdd/update:
+`{
+"serialNumber": 777,
 "manufacturer": "Company name",
-"units_in_stock": 666
-}
-Опущенные свойства товара будут оставлены без изменений
+"unitsInStock": 666
+}`
+
+# Опущенные свойства товара будут оставлены без изменений

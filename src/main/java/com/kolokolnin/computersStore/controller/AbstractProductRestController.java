@@ -3,13 +3,13 @@ package com.kolokolnin.computersStore.controller;
 import com.kolokolnin.computersStore.entity.Product;
 import com.kolokolnin.computersStore.service.ProductPropertiesService;
 import com.kolokolnin.computersStore.utils.ProductValidator;
-import lombok.extern.log4j.Log4j;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
+
 @Slf4j
-public abstract class AbstractProductRestController <E extends Product,
+public abstract class AbstractProductRestController<E extends Product,
         S extends ProductPropertiesService<E>> implements ProductPropertiesController<E> {
 
     private final S service;
@@ -21,7 +21,7 @@ public abstract class AbstractProductRestController <E extends Product,
 
     @Override
     public List<E> getAllProducts() {
-        log.info("get all products {}",service.allProducts());
+        log.info("get all products {}", service.allProducts());
         return service.allProducts();
     }
 

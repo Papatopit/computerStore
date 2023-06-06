@@ -2,11 +2,8 @@ package com.kolokolnin.computersStore.service;
 
 import com.kolokolnin.computersStore.entity.Product;
 import com.kolokolnin.computersStore.repository.ProductPropertiesRepo;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 
 import java.util.List;
-import java.util.UUID;
 
 public abstract class AbstractProductService<E extends Product,
         R extends ProductPropertiesRepo<E>> implements ProductPropertiesService<E> {

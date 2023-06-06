@@ -2,7 +2,6 @@ package com.kolokolnin.computersStore.service;
 
 import com.kolokolnin.computersStore.entity.Laptops;
 import com.kolokolnin.computersStore.repository.LaptopRepo;
-import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

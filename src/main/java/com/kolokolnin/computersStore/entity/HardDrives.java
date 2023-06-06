@@ -14,6 +14,6 @@ import lombok.Setter;
 @Getter
 @Setter
 public class HardDrives extends Product {
-    @Column(name = "capacity")
+
     private Long capacity;
 }
